@@ -42,18 +42,19 @@ s[10] += 'ぱぴぷぺぽ' for [1..2]
 reward1 = ['😀','😃','😉','🙂','❤','💗','💞','🎀','👌','✌','👏']
 reward2 = [' OK! ',' いいね! ',' ばっちり! ',' うまい! ',' じょうず! ']
 
-if process.env.HUBOT_TYPING_ACTIVATE is 1
+if process.env.HUBOT_TYPING_ACTIVATE is "1"
   active = 1
 else
   active = 0
 
+
 module.exports = (robot) ->
 
-  robot.hear /(れんしゅう|練習)を?\s?(はじめ|始め|やろ).*/, (msg) ->
+  robot.hear /(れんしゅう|練習)を?\s?(はじめ|始め|開始|やろ).*/, (msg) ->
     active = 1
     msg.send ( "OK, じゃあ始めよう! 😉" ) 
 
-  robot.hear /(れんしゅう|練習)を?\s?(やめ|止め|おわ).*/, (msg) ->
+  robot.hear /(れんしゅう|練習)を?\s?(やめ|止め|終了|おわ).*/, (msg) ->
     active = 0
     msg.send ( "じゃあ、またね!!! 👋 バイバイ!" )
 
